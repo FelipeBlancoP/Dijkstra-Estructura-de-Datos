@@ -44,7 +44,7 @@ bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string no
 }//--------------------------------------------------------------------------------------------
 
 
-//mostrar matriz-----------------------------------------------------
+//mostrar matriz para ver si funciona--------------------------------
 void imprimirMatriz(vector<vector<int>>& matriz,int& tamanoMatriz){
     for(int i = 0;i<tamanoMatriz;i++){
         for(int j = 0;j<tamanoMatriz;j++){
@@ -66,7 +66,7 @@ class Nodo{
 };//----------
 
 
-//letras--------------------------------------
+//letras correspondientes a cant nodos--------
 vector<Nodo*> letrasNodos(int tamanoMatriz){
     vector<char> letras = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     vector<Nodo*> nodosUsar(tamanoMatriz);
@@ -95,7 +95,7 @@ bool nodoEsta(vector<Nodo*> nodosUsar,char letraNodo){
 
 //encontrar camino mas corto al nodo buscado---------------------------------------
 void encontrarCaminoMasCorto(){
-    
+
 }
 //---------------------------------------------------------------------------------
 
