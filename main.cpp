@@ -16,10 +16,10 @@ bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string no
         matriz = vector<vector<int>>(tamanoMatriz,vector<int>(tamanoMatriz));
         string linea;
         int fila = 0;
-        while(fila < tamanoMatriz && getline(archivo,linea)){
+        while(fila < tamanoMatriz && getline(archivoLeer,linea)){
             int columna = 0;
             string numero = "";
-            for(int i = 0;i <= linea.size();i++)
+            for(int i = 0;i <= linea.size();i++){
                 if(i<linea.size() && linea[i] != ','){
                     numero += linea[i];
                 }else{
@@ -30,17 +30,24 @@ bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string no
             }
             fila++;
         }
-        archivo.close();
+        archivoLeer.close();
         return true;
+    }else{
+        cout<<"Tamaño de la matriz incorrecto. Modifique el txt"<<endl;
+        return false;
     }
-    cout<<"Tamaño de la matriz incorrecto. Modifique el txt"<<endl;
-    return false;
+    
 }
 //------------------------------------------------------------------------------------------------
 
 //mostrar matriz----------------------------------------------------------------------------------
 void mostrarMatriz(vector<vector<int>>& matriz,int& tamanoMatriz){
-
+    for(int i = 0;i<tamanoMatriz;i++){
+        for(int j = 0;j<tamanoMatriz;j++){
+            cout<<matriz[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 }
 //------------------------------------------------------------------------------------------------
 
@@ -49,8 +56,8 @@ int main(){
     int tamanoMatriz = 0;
     vector<vector<int>> matriz;
 
-    if(cargarArchivoMatriz(matriz,"Matriz.txt")){
-        mostrarMatriz(Matriz,tamanoMatriz);
+    if(cargarArchivoMatriz(matriz,tamanoMatriz,"Matriz.txt")){
+        mostrarMatriz(matriz,tamanoMatriz);
     }else{
         cout<<"Error al cargar la Matriz"<<endl;
     }
