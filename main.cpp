@@ -3,6 +3,18 @@ using namespace std;
 #include <fstream>
 #include <vector>
 
+//Clase Nodo----------------------------------------
+class Nodo(){
+    public:
+        char letra;
+        int distancia;
+    Nodo(char _letra,int _distancia){
+        letra = _letra;
+        distancia = _distancia;
+    }
+}
+//--------------------------------------------------
+
 //cargar matriz del archivo txt y colocar los numeros en la matriz------------------------------------------
 bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string nombreArchivo){
     ifstream archivoLeer(nombreArchivo);
