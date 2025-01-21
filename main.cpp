@@ -41,7 +41,7 @@ bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string no
 //------------------------------------------------------------------------------------------------
 
 //mostrar matriz----------------------------------------------------------------------------------
-void mostrarMatriz(vector<vector<int>>& matriz,int& tamanoMatriz){
+void imprimirMatriz(vector<vector<int>>& matriz,int& tamanoMatriz){
     for(int i = 0;i<tamanoMatriz;i++){
         for(int j = 0;j<tamanoMatriz;j++){
             cout<<matriz[i][j]<<" ";
@@ -57,7 +57,7 @@ int main(){
     vector<vector<int>> matriz;
 
     if(cargarArchivoMatriz(matriz,tamanoMatriz,"Matriz.txt")){
-        mostrarMatriz(matriz,tamanoMatriz);
+        imprimirMatriz(matriz,tamanoMatriz);
     }else{
         cout<<"Error al cargar la Matriz"<<endl;
     }
