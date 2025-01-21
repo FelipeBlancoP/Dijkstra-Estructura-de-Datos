@@ -4,8 +4,7 @@ using namespace std;
 #include <vector>
 
 //cargar matriz del archivo txt y colocar los numeros en la matriz------------------------------------------
-bool cargarArchivoMatriz(vector<vector<int>>& matriz, string nombreArchivo){
-    int tamanoMatriz = 0;
+bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string nombreArchivo){
     ifstream archivoLeer(nombreArchivo);
     if(!archivoLeer.is_open()){
         cout<<"No se abrio el archivo"<<endl;
@@ -39,13 +38,17 @@ bool cargarArchivoMatriz(vector<vector<int>>& matriz, string nombreArchivo){
 }
 //------------------------------------------------------------------------------------------------
 
+//mostrar matriz----------------------------------------------------------------------------------
+void mostrarMatriz(vector<vector<int>>& matriz,int& tamanoMatriz){
 
-
-
+}
+//------------------------------------------------------------------------------------------------
 
 
 int main(){
+    int tamanoMatriz = 0;
     vector<vector<int>> matriz;
+
     if(cargarArchivoMatriz(matriz,"Matriz.txt")){
         mostrarMatriz(Matriz,tamanoMatriz);
     }else{
