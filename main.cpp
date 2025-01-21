@@ -52,17 +52,26 @@ void imprimirMatriz(vector<vector<int>>& matriz,int& tamanoMatriz){
 //------------------------------------------------------------------------------------------------
 
 //letras------------------------------------------------------------------------------
-vector<char> letras = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+void letrasNodos(int tamanoMatriz){
+    vector<char> letras = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    cout<<"Nodos: ";
+    for(int i = 0;i<tamanoMatriz;i++){
+        cout<<letras[i]<<" ";
+    }
+    cout<<endl;
+}
 //------------------------------------------------------------------------------------
+
+
 int main(){
     int tamanoMatriz = 0;
     vector<vector<int>> matriz;
 
     if(cargarArchivoMatriz(matriz,tamanoMatriz,"Matriz.txt")){
         imprimirMatriz(matriz,tamanoMatriz);
+        letrasNodos(tamanoMatriz);
     }else{
         cout<<"Error al cargar la Matriz"<<endl;
     }
-    cout<<"Hola Mundo"<<endl;
     return 0;
 }
