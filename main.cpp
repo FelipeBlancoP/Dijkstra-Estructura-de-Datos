@@ -94,8 +94,17 @@ Nodo* nodoEsta(vector<Nodo*> nodosUsar,char letraNodo){
 
 
 //encontrar camino mas corto al nodo buscado---------------------------------------
-void encontrarCaminoMasCorto(Nodo* nodoAEncontrar){
+void nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,int tamanoMatriz){
+    int menor = 9999;
+    int nodoMDistancia = -1;
 
+    for(int i = 0;i<tamanoMatriz;i++){
+        if(!visitados[i] && distanciaMasCorta[i] < menor){
+            menor = distanciaMasCorta[i];
+            nodoMDistancia = i;
+        }
+    }
+    return nodoMDistancia;
 }//---------------------------------------------------------------------------------
 
 
