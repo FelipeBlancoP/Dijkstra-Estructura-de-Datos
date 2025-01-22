@@ -135,6 +135,9 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     }
     distanciaMasCorta[0] = 0;
 
+    Nodoarbol* arbol = new NodoArbol(nodosUsar[0]->letra);
+    
+
     for(int i = 0;i<tamanoMatriz-1; i++){
         int nodoMDistancia = nodoMenorDistancia(visitados,distanciaMasCorta,tamanoMatriz);
         if(nodoMDistancia == -1){
