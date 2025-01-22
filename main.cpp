@@ -65,6 +65,16 @@ class Nodo{
     }
 };//----------
 
+//Clase NodoArbol
+class NodoArbol{
+    public:
+        char letra;
+        NodoArbol* raiz;
+    NodoArbol(char _letra){
+        letra = _letra;
+        raiz = nullptr;
+    }
+}//---------------
 
 //letras correspondientes a cant nodos--------
 vector<Nodo*> letrasNodos(int tamanoMatriz){
