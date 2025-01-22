@@ -94,7 +94,7 @@ Nodo* nodoEsta(vector<Nodo*> nodosUsar,char letraNodo){
 
 
 //encontrar camino mas corto al nodo buscado---------------------------------------
-void nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,int tamanoMatriz){
+int nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,int tamanoMatriz){
     int menor = 9999;
     int nodoMDistancia = -1;
 
@@ -114,22 +114,22 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
     cin>>letraNodo;
     Nodo* nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
-    while(!esta){
+    while(!nodoAEncontrar){
         cin.ignore();
         cout<<"Error. Ingrese correctamente la letra."<<endl;
         cout<<"Escriba la letra del Nodo al que quiera llegar: ";
         cin>>letraNodo;
         nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
     }
-    vector<bool> visitados(tamanoMatriz)
+    vector<bool> visitados(tamanoMatriz);
     for(int i = 0;i <tamanoMatriz;i++){
         visitados[i] = false;
     }
-    vector<int> distanciaMasCorta(tamanoMatriz)
+    vector<int> distanciaMasCorta(tamanoMatriz);
     for(int i = 0;i <tamanoMatriz;i++){
         distanciaMasCorta[i] = 9999;
     }
-    vector<int> ruta(tamanoMatriz)
+    vector<int> ruta(tamanoMatriz);
     for(int i = 0;i <tamanoMatriz;i++){
         ruta[i] = -9999;
     }
@@ -142,7 +142,7 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
         }else{
             visitados[nodoMDistancia] = true;
             for(int c = 0;c <tamanoMatriz;c++){
-                if(matriz[nodoMDistancia][c] != 0 && !visitado[c]){
+                if(matriz[nodoMDistancia][c] != 0 && !visitados[c]){
                     int nuevaDistancia = distanciaMasCorta[nodoMDistancia]+matriz[nodoMDistancia][c];
                     if(nuevaDistancia < distanciaMasCorta[c]){
                         distanciaMasCorta[c] = nuevaDistancia;
@@ -152,8 +152,8 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
             }
         }
     }
-    int nodoDestino = nodoAEncontrar -'A';
-    cout<<"Distancia mas corta al Nodo: "<<nodoDestino->letra<<distanciaMasCorta[nodoDestino]<<endl;
+    int nodoDestino = nodoAEncontrar->letra - 'A';
+    cout<<"Distancia mas corta al Nodo: "<<nodoAEncontrar->letra<<" es "<<distanciaMasCorta[nodoDestino]<<endl;
 
     
 }//--------------------------------------------------------------------------------------
