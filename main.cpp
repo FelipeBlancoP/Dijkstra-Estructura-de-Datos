@@ -94,10 +94,9 @@ Nodo* nodoEsta(vector<Nodo*> nodosUsar,char letraNodo){
 
 
 //encontrar camino mas corto al nodo buscado---------------------------------------
-void encontrarCaminoMasCorto(){
+void encontrarCaminoMasCorto(Nodo* nodoAEncontrar){
 
-}
-//---------------------------------------------------------------------------------
+}//---------------------------------------------------------------------------------
 
 
 //preguntar por el nodo a buscar...------------------------------------------------------
@@ -105,15 +104,15 @@ void nodoABuscar(vector<vector<int>> matriz,int tamanoMatriz,vector<Nodo*>& nodo
     char letraNodo;
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
     cin>>letraNodo;
-    Nodo* esta = nodoEsta(nodosUsar,letraNodo);
+    Nodo* nodoEncontrado = nodoEsta(nodosUsar,letraNodo);
     while(!esta){
         cin.ignore();
         cout<<"Error. Ingrese correctamente la letra."<<endl;
         cout<<"Escriba la letra del Nodo al que quiera llegar: ";
         cin>>letraNodo;
-        esta = nodoEsta(nodosUsar,letraNodo);
+        nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
     }
-    cout<<esta->letra<<endl;
+    encontrarCaminoMasCorto(nodoAEncontrar);
 }//--------------------------------------------------------------------------------------
 
 
