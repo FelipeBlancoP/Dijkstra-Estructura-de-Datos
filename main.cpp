@@ -118,9 +118,17 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     }
     vector<int> distanciaMasCorta(tamanoMatriz)
     for(int i = 0;i <tamanoMatriz;i++){
-        distanciaMasCorta[i] = -9999;
+        distanciaMasCorta[i] = 9999;
     }
-    
+    vector<int> ruta(tamanoMatriz)
+    for(int i = 0;i <tamanoMatriz;i++){
+        ruta[i] = -9999;
+    }
+    distanciaMasCorta[0] = 0;
+
+    for(int i = 0;i<tamanoMatriz-1; i++){
+        int nodoActual = nodoMenorDistancia(visitados,distanciaMasCorta,tamanoMatriz);
+    }
 }//--------------------------------------------------------------------------------------
 
 
