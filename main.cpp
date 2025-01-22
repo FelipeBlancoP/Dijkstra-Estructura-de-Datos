@@ -100,7 +100,7 @@ void encontrarCaminoMasCorto(Nodo* nodoAEncontrar){
 
 
 //preguntar por el nodo a buscar...------------------------------------------------------
-void nodoABuscar(vector<vector<int>> matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
+void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
     char letraNodo;
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
     cin>>letraNodo;
@@ -112,7 +112,15 @@ void nodoABuscar(vector<vector<int>> matriz,int tamanoMatriz,vector<Nodo*>& nodo
         cin>>letraNodo;
         nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
     }
-    encontrarCaminoMasCorto(nodoAEncontrar);
+    vector<bool> visitados(tamanoMatriz)
+    for(int i = 0;i <tamanoMatriz;i++){
+        visitados[i] = false;
+    }
+    vector<int> distanciaMasCorta(tamanoMatriz)
+    for(int i = 0;i <tamanoMatriz;i++){
+        distanciaMasCorta[i] = -9999;
+    }
+    
 }//--------------------------------------------------------------------------------------
 
 
