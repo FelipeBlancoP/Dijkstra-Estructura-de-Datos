@@ -141,6 +141,15 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
             break;
         }else{
             visitados[nodoMDistancia] = true;
+            for(int c = 0;c <tamanoMatriz;c++){
+                if(matriz[nodoMDistancia][c] != 0 && !visitado[c]){
+                    int nuevaDistancia = distanciaMasCorta[nodoMDistancia]+matriz[nodoMDistancia][c];
+                    if(nuevaDistancia < distanciaMasCorta[c]){
+                        distanciaMasCorta[c] = nuevaDistancia;
+                        ruta[c] = nodoMDistancia;
+                    }
+                }
+            }
         }
     }
 }//--------------------------------------------------------------------------------------
