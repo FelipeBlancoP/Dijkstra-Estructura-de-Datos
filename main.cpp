@@ -136,7 +136,12 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     distanciaMasCorta[0] = 0;
 
     for(int i = 0;i<tamanoMatriz-1; i++){
-        int nodoActual = nodoMenorDistancia(visitados,distanciaMasCorta,tamanoMatriz);
+        int nodoMDistancia = nodoMenorDistancia(visitados,distanciaMasCorta,tamanoMatriz);
+        if(nodoMDistancia == -1){
+            break;
+        }else{
+            visitados[nodoMDistancia] = true;
+        }
     }
 }//--------------------------------------------------------------------------------------
 
