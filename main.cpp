@@ -113,7 +113,7 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     char letraNodo;
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
     cin>>letraNodo;
-    Nodo* nodoEncontrado = nodoEsta(nodosUsar,letraNodo);
+    Nodo* nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
     while(!esta){
         cin.ignore();
         cout<<"Error. Ingrese correctamente la letra."<<endl;
@@ -152,6 +152,10 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
             }
         }
     }
+    int nodoDestino = nodoAEncontrar -'A';
+    cout<<"Distancia mas corta al Nodo: "<<nodoDestino->letra<<distanciaMasCorta[nodoDestino]<<endl;
+
+    
 }//--------------------------------------------------------------------------------------
 
 
