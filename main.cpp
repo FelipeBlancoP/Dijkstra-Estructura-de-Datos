@@ -132,6 +132,9 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
         nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
     }
     vector<bool> visitados(tamanoMatriz);
+    for(int i = 0;i <tamanoMatriz;i++){
+        visitados[i] = false;
+    }
     vector<int> distanciaMasCorta(tamanoMatriz);
     for(int i = 0;i <tamanoMatriz;i++){
         distanciaMasCorta[i] = 9999;
@@ -151,31 +154,38 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
         for(int j = 0;j<tamanoMatriz;j++){
             if(!visitados[j] && distanciaMasCorta[j] != -1 && (distanciaCorta == -1 || distanciaMasCorta[j] < distanciaCorta)){
                 nodoActual = j;
-                distanciaCorta = distancia[j];
+                distanciaCorta = distanciaMasCorta[j];
             }
         }
-    }
     
-    if(nodoActual == -1){
-        break;
-    }
-    visitados[nodosActual] = true;
+        if(nodoActual == -1){
+            break;
+        }
+        visitados[nodoActual] = true;
 
-    for(int nodoAdyacente = 0;nodoAdyacente <tamanoMatriz;nodoAdyacente++){
-        if(matriz[nodoMDistancia][nodoAdyacente] > 0 && !visitados[nodoAdyacente]){
-            int nuevaDistancia = distanciaMasCorta[nodoMDistancia]+matriz[nodoMDistancia][nodoAdyacente];
-            if(nuevaDistancia < distanciaMasCorta[nodoAdyacente]){
-                distanciaMasCorta[nodoAdyacente] = nuevaDistancia;
+        for(int nodoAdyacente = 0;nodoAdyacente <tamanoMatriz;nodoAdyacente++){
+            if(matriz[nodoActual][nodoAdyacente] > 0 && !visitados[nodoAdyacente]){
+                int nuevaDistancia = distanciaMasCorta[nodoActual]+matriz[nodoActual][nodoAdyacente];
+                if(nuevaDistancia < distanciaMasCorta[nodoAdyacente]){
+                    distanciaMasCorta[nodoAdyacente] = nuevaDistancia;
 
-                if(!nodosArbol[nodoAdyacente]){
-                    nodosArbol[nodoAdyacente] = new NodoArbol(nodosUsar[nodoAdyacente]->letra);
+                    if(!nodosArbol[nodoAdyacente]){
+                        nodosArbol[nodoAdyacente] = new NodoArbol(nodosUsar[nodoAdyacente]->letra);
+                    }
+                    nodosArbol[nodoAdyacente]->raiz = nodosArbol[nodoActual];
                 }
-                nodosArbol[nodoAdyacente]->raiz = nodosArbol[nodoActual];
             }
         }
     }
-    cout<<"Distancia mas corta al Nodo: "<<nodoAEncontrar->letra<<" es "<<distanciaMasCorta[nodoDestino-&nodosUsar[0]]<<endl;
-    return nodosArbol[nodoAEncontrar - &nodosUsar[0]];
+    int indiceDestino = -1;
+    for(int k = 0;k<nodosUsar.size();k++){
+        if(nodosUsar[k] == nodoAEncontrar){
+            indiceDestino = k;
+            break;
+        }
+    }
+    cout<<"Distancia mas corta al Nodo: "<<nodoAEncontrar->letra<<" es "<<distanciaMasCorta[indiceDestino]<<endl;
+    return nodosArbol[indiceDestino];
 }//--------------------------------------------------------------------------------------
 
 
