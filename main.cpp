@@ -217,7 +217,7 @@ int main(){
     int tamanoMatriz = 0;
     vector<vector<int>> matriz;
 
-    if(cargarArchivoMatriz(matriz,tamanoMatriz,"Matriz.txt")){
+    if(cargarArchivoMatriz(matriz,tamanoMatriz,"Matriz3.txt")){
         //imprimirMatriz(matriz,tamanoMatriz);
         vector<Nodo*> nodosUsar = letrasNodos(tamanoMatriz);
         NodoArbol* nodoCaminoCorto = dijkstra(matriz,tamanoMatriz,nodosUsar);
