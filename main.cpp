@@ -105,7 +105,7 @@ Nodo* nodoEsta(vector<Nodo*> nodosUsar,char letraNodo){
 }//-----------------------------------------------------
 
 
-//encontrar camino mas corto al nodo buscado---------------------------------------
+//encontrar camino mas corto al nodo buscado------------------------------------------------------
 int nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,int tamanoMatriz){
     int menor = 9999;
     int nodoMDistancia = -1;
@@ -117,10 +117,10 @@ int nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,in
         }
     }
     return nodoMDistancia;
-}//---------------------------------------------------------------------------------
+}//-----------------------------------------------------------------------------------------------
 
 
-//preguntar por el nodo a buscar...------------------------------------------------------
+//preguntar por el nodo a buscar y buscar el camino mas corto--------------------------------
 NodoArbol* dijkstra(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
     char letraNodo;
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
@@ -188,7 +188,7 @@ NodoArbol* dijkstra(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& 
     }
     cout<<"Distancia mas corta al Nodo: "<<nodoAEncontrar->letra<<" es "<<distanciaMasCorta[indiceDestino]<<endl;
     return nodosArbol[indiceDestino];
-}//--------------------------------------------------------------------------------------
+}//------------------------------------------------------------------------------------------
 
 
 //imprimir las letras del camino mas corto
