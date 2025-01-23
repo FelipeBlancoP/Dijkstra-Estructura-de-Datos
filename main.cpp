@@ -12,7 +12,7 @@ bool cargarArchivoMatriz(vector<vector<int>>& matriz,int& tamanoMatriz,string no
     }
     archivoLeer>>tamanoMatriz;
     archivoLeer.ignore();
-    if(tamanoMatriz > 0 && tamanoMatriz <= 27){
+    if(tamanoMatriz > 0 && tamanoMatriz <= 26){
         matriz = vector<vector<int>>(tamanoMatriz,vector<int>(tamanoMatriz));
         string linea;
         int fila = 0;
