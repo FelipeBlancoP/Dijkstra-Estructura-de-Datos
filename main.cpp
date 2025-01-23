@@ -132,16 +132,9 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
         nodoAEncontrar = nodoEsta(nodosUsar,letraNodo);
     }
     vector<bool> visitados(tamanoMatriz);
-    for(int i = 0;i <tamanoMatriz;i++){
-        visitados[i] = false;
-    }
     vector<int> distanciaMasCorta(tamanoMatriz);
     for(int i = 0;i <tamanoMatriz;i++){
         distanciaMasCorta[i] = 9999;
-    }
-    vector<int> ruta(tamanoMatriz);
-    for(int i = 0;i <tamanoMatriz;i++){
-        ruta[i] = -9999;
     }
     distanciaMasCorta[0] = 0;
 
@@ -149,11 +142,6 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     vector<NodoArbol*> nodosArbol(tamanoMatriz);
     for(int i = 0;i <tamanoMatriz;i++){
         nodosArbol[i] = nullptr;
-    }
-    nodosArbol[0] = raiz;
-    vector<NodoArbol*> nodosArbol(tamanoMatriz);
-    for(int i = 0;i <tamanoMatriz;i++){
-        ruta[i] = -9999;
     }
     nodosArbol[0] = raiz;
 
@@ -174,19 +162,20 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
     visitados[nodosActual] = true;
 
     for(int nodoAdyacente = 0;nodoAdyacente <tamanoMatriz;nodoAdyacente++){
-        if(matriz[nodoMDistancia][nodoAdyacente] != 0 && !visitados[nodoAdyacente]){
+        if(matriz[nodoMDistancia][nodoAdyacente] > 0 && !visitados[nodoAdyacente]){
             int nuevaDistancia = distanciaMasCorta[nodoMDistancia]+matriz[nodoMDistancia][nodoAdyacente];
             if(nuevaDistancia < distanciaMasCorta[nodoAdyacente]){
                 distanciaMasCorta[nodoAdyacente] = nuevaDistancia;
+
+                if(!nodosArbol[nodoAdyacente]){
+                    nodosArbol[nodoAdyacente] = new NodoArbol(nodosUsar[nodoAdyacente]->letra);
+                }
+                nodosArbol[nodoAdyacente]->raiz = nodosArbol[nodoActual];
             }
         }
     }
-        }
-    }
-    int nodoDestino = nodoAEncontrar->letra - 'A';
-    cout<<"Distancia mas corta al Nodo: "<<nodoAEncontrar->letra<<" es "<<distanciaMasCorta[nodoDestino]<<endl;
-
-    
+    cout<<"Distancia mas corta al Nodo: "<<nodoAEncontrar->letra<<" es "<<distanciaMasCorta[nodoDestino-&nodosUsar[0]]<<endl;
+    return nodosArbol[nodoAEncontrar - &nodosUsar[0]];
 }//--------------------------------------------------------------------------------------
 
 
