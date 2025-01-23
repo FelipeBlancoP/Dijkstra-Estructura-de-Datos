@@ -188,6 +188,19 @@ NodoArbol* nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*
     return nodosArbol[indiceDestino];
 }//--------------------------------------------------------------------------------------
 
+//imprimir las letras del camino mas corto
+void imprimirCaminoMasCorto(NodoArbol* nodoAEncontrar){
+    vector<char> camino;
+    NodoArbol* nodoActual = nodoAEncontrar;
+
+    while(nodoActual == nullptr){
+        camino.push_back(nodoActual->letra);
+        nodoActual = nodoActual->raiz;
+    }
+
+    
+}
+//----------------------------------------
 
 //MAIN=======
 int main(){
