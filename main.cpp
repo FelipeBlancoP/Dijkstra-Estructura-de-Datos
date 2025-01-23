@@ -156,9 +156,9 @@ void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nod
         ruta[i] = -9999;
     }
     nodosArbol[0] = raiz;
-
+    
     for(int i = 0;i<tamanoMatriz-1; i++){
-        int nodoMDistancia = nodoMenorDistancia(visitados,distanciaMasCorta,tamanoMatriz);
+        int nodoMDistancia 
         if(nodoMDistancia == -1){
             break;
         }else{
