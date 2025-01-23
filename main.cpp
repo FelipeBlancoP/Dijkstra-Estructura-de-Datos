@@ -177,7 +177,7 @@ NodoArbol* nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*
             }
         }
     }
-    int indiceDestino = -1;
+    int indiceDestino = - 1;
     for(int k = 0;k<nodosUsar.size();k++){
         if(nodosUsar[k] == nodoAEncontrar){
             indiceDestino = k;
@@ -193,12 +193,12 @@ void imprimirCaminoMasCorto(NodoArbol* nodoAEncontrar){
     vector<char> camino;
     NodoArbol* nodoActual = nodoAEncontrar;
 
-    while(nodoActual == nullptr){
+    while(nodoActual != nullptr){
         camino.push_back(nodoActual->letra);
         nodoActual = nodoActual->raiz;
     }
     cout<<"El camino mas corto al nodo es: ";
-    for(int i = camino.size();i>=0;i--){
+    for(int i = camino.size()-1;i>=0;i--){
         cout<<camino[i];
         if(i>0){
             cout<<" ";
