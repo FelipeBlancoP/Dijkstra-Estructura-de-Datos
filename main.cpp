@@ -217,7 +217,8 @@ int main(){
     if(cargarArchivoMatriz(matriz,tamanoMatriz,"Matriz.txt")){
         //imprimirMatriz(matriz,tamanoMatriz);
         vector<Nodo*> nodosUsar = letrasNodos(tamanoMatriz);
-        nodoABuscar(matriz,tamanoMatriz,nodosUsar);
+        NodoArbol* nodoCaminoCorto = nodoABuscar(matriz,tamanoMatriz,nodosUsar);
+        imprimirCaminoMasCorto(nodoCaminoCorto);
     }else{
         cout<<"Error al cargar la Matriz"<<endl;
     }
