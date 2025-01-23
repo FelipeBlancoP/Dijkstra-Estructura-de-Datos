@@ -119,7 +119,7 @@ int nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,in
 
 
 //preguntar por el nodo a buscar...------------------------------------------------------
-void nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
+NodoArbol* nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
     char letraNodo;
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
     cin>>letraNodo;
