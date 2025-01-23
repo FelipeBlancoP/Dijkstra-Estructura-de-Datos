@@ -65,7 +65,8 @@ class Nodo{
     }
 };//----------
 
-//Clase NodoArbol
+
+//Clase NodoArbol-
 class NodoArbol{
     public:
         char letra;
@@ -74,7 +75,8 @@ class NodoArbol{
         letra = _letra;
         raiz = nullptr;
     }
-};//---------------
+};//--------------
+
 
 //letras correspondientes a cant nodos--------
 vector<Nodo*> letrasNodos(int tamanoMatriz){
@@ -119,7 +121,7 @@ int nodoMenorDistancia(vector<bool>& visitados,vector<int>& distanciaMasCorta,in
 
 
 //preguntar por el nodo a buscar...------------------------------------------------------
-NodoArbol* nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
+NodoArbol* dijkstra(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*>& nodosUsar){
     char letraNodo;
     cout<<"Escriba la letra del Nodo al que quiera llegar: ";
     cin>>letraNodo;
@@ -188,6 +190,7 @@ NodoArbol* nodoABuscar(vector<vector<int>>& matriz,int tamanoMatriz,vector<Nodo*
     return nodosArbol[indiceDestino];
 }//--------------------------------------------------------------------------------------
 
+
 //imprimir las letras del camino mas corto
 void imprimirCaminoMasCorto(NodoArbol* nodoAEncontrar){
     vector<char> camino;
@@ -206,8 +209,8 @@ void imprimirCaminoMasCorto(NodoArbol* nodoAEncontrar){
     }
     cout<<endl;
 
-}
-//----------------------------------------
+}//----------------------------------------
+
 
 //MAIN=======
 int main(){
