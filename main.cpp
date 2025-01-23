@@ -197,8 +197,15 @@ void imprimirCaminoMasCorto(NodoArbol* nodoAEncontrar){
         camino.push_back(nodoActual->letra);
         nodoActual = nodoActual->raiz;
     }
+    cout<<"El camino mas corto al nodo es:"
+    for(int i = 0;i>=0;i--){
+        cout<<camino[i];
+        if(i>0){
+            cout<<" ";
+        }
+    }
+    cout<<endl;
 
-    
 }
 //----------------------------------------
 
